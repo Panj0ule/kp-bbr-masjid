@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_informasi_wargas', function (Blueprint $table) {
+        Schema::create('category_informasi_kajians', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_informasi_wargas');
+        Schema::dropIfExists('category_informasi_kajians');
     }
 };

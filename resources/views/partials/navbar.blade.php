@@ -18,8 +18,9 @@
 
           <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="/informasi-warga">Informasi Kajian</a></li>
+              <li><a href="/informasi-kajian">Informasi Kajian</a></li>
               <li><a href="#">Informasi Umum</a></li>
+              <li><a href="/categories/">Kategori</a></li>
               <li><a href="#">Pengumuman</a></li>
             </ul>
           </li>

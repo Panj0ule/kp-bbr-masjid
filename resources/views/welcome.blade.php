@@ -9,7 +9,7 @@
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset("img/post-slide-1.jpg") }}');">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('https://source.unsplash.com/1200x400/?islam?mosque?muslim');">
                     <div class="img-bg-inner">
                       <h2>Slide 1</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset("img/post-slide-2.jpg") }}');">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('https://source.unsplash.com/1200x400/?mosque?muslim');">
                     <div class="img-bg-inner">
                       <h2>Slide 2</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset("img/post-slide-3.jpg") }}');">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('https://source.unsplash.com/1200x400/?islam?muslim');">
                     <div class="img-bg-inner">
                       <h2>Slide 3</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('{{ asset("img/post-slide-4.jpg") }}');">
+                  <a href="single-post.html" class="img-bg d-flex align-items-end" style="background-image: url('https://source.unsplash.com/1200x400/?islam?mosque?');">
                     <div class="img-bg-inner">
                       <h2>Slide 4</h2>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>

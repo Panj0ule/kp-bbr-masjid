@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\informasi_wargaController;
-use App\Models\CategoryInformasi_warga;
-use App\Models\Informasi_warga;
+use App\Http\Controllers\informasi_kajianController;
+use App\Models\CategoryInformasi_kajian;
+use App\Models\Informasi_kajian;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
 
@@ -25,22 +25,22 @@ Route::get('/a', function () {
   return view('index');
 });
 
-Route::get('/informasi-warga', [Informasi_wargaController::class, 'index']);
+Route::get('/informasi-kajian', [Informasi_kajianController::class, 'index']);
 
 // single post
-route::get('/informasi-warga/post/{post:slug}', [Informasi_wargaController::class, 'show']);
+route::get('/informasi-kajian/post/{post:slug}', [Informasi_kajianController::class, 'show']);
 
-route::get('/informasi-warga/categories/', function(){
-  return view('categories_wargaBlog', [
+route::get('/categories', function(){
+  return view('categories_kajianBlog', [
     'title' => 'Post Categories',
-    'categories' => CategoryInformasi_warga::all(),
+    'categories' => CategoryInformasi_kajian::all(),
   ]);
 });
 
-route::get('/informasi-warga/categories/{category:slug}', function(CategoryInformasi_warga $category){
-  return view('category_wargaBlog', [
+route::get('/categories/{category:slug}', function(CategoryInformasi_kajian $category){
+  return view('kajianBlog', [
     'title' => $category->name,
-    'posts' => $category->posts,
+    'posts' => $category->posts->load('category','user'),
     'category' => $category->name,
   ]);
 });
