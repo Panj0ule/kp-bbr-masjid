@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Models;
-
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Models\CategoryInformasi_kajian;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Informasi_kajian extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     //protected $fillable = ['title', 'excerpt', 'body'];
     protected $guarded = ['id'];
     protected $with = ['user', 'category'];
@@ -34,5 +34,19 @@ class Informasi_kajian extends Model
     public function user()
     {
       return $this -> belongsTo(User::class);
+    }
+
+    public function getRouteKeyName()
+    {
+      return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }

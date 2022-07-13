@@ -3,10 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Informasi_kajian;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use App\Models\Informasi_kajian;
 use App\Models\CategoryInformasi_kajian;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -65,5 +67,13 @@ class DatabaseSeeder extends Seeder
 
         //FAKER SEEDING
         Informasi_kajian::factory(20)->create();
+
+        //User manual seed
+        User::create([
+          'name' =>'Dummy Admin',
+          'email' =>'dummyadmin@gmail.com',
+          'password' => Hash::make('123456'),
+          'remember_token' => Str::random(10)
+        ]);
     }
 }

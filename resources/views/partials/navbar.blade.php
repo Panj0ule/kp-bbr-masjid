@@ -27,6 +27,20 @@
           <li><a href="#">Profil Masjid</a></li>
 
           <li><a href="contact.html">Kontak</a></li>
+
+          @auth
+          <li class="dropdown"><a href="#"><span>{{ auth()->user()->name }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="/dashboard">{{-- <i class="bi bi-layout-text-sidebar-reverse"> --}}</i>Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <form action="/logout" method="post">
+                  @csrf
+                  <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                </form>
+            </ul>
+          </li>
+          @endauth
         </ul>
       </nav><!-- .navbar -->
 

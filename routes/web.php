@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\informasi_kajianController;
-use App\Models\CategoryInformasi_kajian;
-use App\Models\Informasi_kajian;
+use App\Http\Controllers\DashboardInformasi_KajianController;
+
 use Illuminate\Support\Facades\Route;
-use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
+use App\Models\CategoryInformasi_kajian;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\informasi_kajianController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +46,15 @@ route::get('/categories/{category:slug}', function(CategoryInformasi_kajian $cat
     'category' => $category->name,
   ]);
 });
+
+route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+route::post('/login', [LoginController::class, 'authenticate']);
+route::post('/logout', [LoginController::class, 'logout']);
+
+route::get('/dashboard', function(){
+  return view('dashboard.index');
+})->middleware('auth');
+
+
+route::get('/dashboard/informasi-kajian/checkSlug', [DashboardInformasi_KajianController::class, 'checkSlug'])->middleware('auth');
+route::resource('/dashboard/informasi-kajian', DashboardInformasi_KajianController::class)->middleware('auth');

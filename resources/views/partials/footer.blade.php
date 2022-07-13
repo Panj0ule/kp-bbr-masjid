@@ -9,9 +9,15 @@
               <span class="text-muted">© Masjid Babburahman</span>
             </div>
 
+            @auth
+              Logged in as: {{ auth()->user()->name }}
+            @else
+              <a href="/login"class="text-muted">Login Admin</a>
+            @endauth
             <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
               <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
               <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
               <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
             </ul>
-      </footer>
+          </div>
+        </footer>

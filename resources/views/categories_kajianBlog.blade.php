@@ -10,7 +10,7 @@
         <article class="mb-3">
           <ul>
             <li>
-              <h2 style="color:burlywood; text-decoration:underline"><a href="/categories/{{ $category->slug }}">{{ $category->name }}</a></h2>
+              <h2 style="color:burlywood; text-decoration:underline"><a href="/informasi-kajian?category={{ $category->slug }}">{{ $category->name }}</a></h2>
             </li>
           </ul>
         </article>

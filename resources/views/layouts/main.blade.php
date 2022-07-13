@@ -21,7 +21,8 @@
       <link href="{{ asset('assets/css/variables.css') }}" rel="stylesheet">
       <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
-              <!-- Vendor JS Files -->
+
+      <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
@@ -30,6 +31,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
 
     </head>
     <body>
