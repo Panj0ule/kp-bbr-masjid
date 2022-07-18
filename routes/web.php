@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryInformasi_KajianController;
 use App\Http\Controllers\DashboardInformasi_KajianController;
 
 use Illuminate\Support\Facades\Route;
@@ -58,3 +59,6 @@ route::get('/dashboard', function(){
 
 route::get('/dashboard/informasi-kajian/checkSlug', [DashboardInformasi_KajianController::class, 'checkSlug'])->middleware('auth');
 route::resource('/dashboard/informasi-kajian', DashboardInformasi_KajianController::class)->middleware('auth');
+
+//category
+route::resource('/dashboard/categories_informasi-kajian', AdminCategoryInformasi_KajianController::class)->except('show')->middleware('auth');

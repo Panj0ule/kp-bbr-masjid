@@ -37,6 +37,10 @@ class DatabaseSeeder extends Seeder
           'name' => 'Fiqih',
           'slug' => 'fiqih'
         ]);
+        CategoryInformasi_kajian::create([
+          'name' => 'TEsting',
+          'slug' => 'testing'
+        ]);
 
         Informasi_kajian::create([
           'title' => 'Judul Pertama',

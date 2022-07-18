@@ -13,6 +13,12 @@
           Post Informasi Kajian
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('dashboard/categories_informasi-kajian*') ? 'active' : '' }}" href="dashboard/categories_informasi-kajian">
+          <span data-feather="grid"></span>
+          Category Informasi Kajian
+        </a>
+      </li>
     </ul>
 
 

@@ -10,7 +10,10 @@
             </div>
 
             @auth
-              Logged in as: {{ auth()->user()->name }}
+            <form action="/logout" method="post">
+              @csrf
+              <button type="submit" class=" px-3 border-0"><i class="bi bi-box-arrow-right"></i> Logout ({{ auth()->user()->name }}) </button>
+            </form>
             @else
               <a href="/login"class="text-muted">Login Admin</a>
             @endauth

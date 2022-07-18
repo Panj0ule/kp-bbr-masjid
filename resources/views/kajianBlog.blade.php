@@ -21,7 +21,14 @@
 
       @if ($posts->count())
         <div class="card mb-3">
-          <img src="https://source.unsplash.com/1200x400/?islam?mosque?muslim" class="card-img-top" alt="...">
+          @if ($posts[0]->image)
+            <div style="max-height:350px;overflow:hidden">
+              <img src="{{ asset('storage/'.$posts[0]->image) }}" alt="{{ $posts[0]->category->name }}" class="img-responsive center-block">
+            </div>
+          @else
+            <img src="https://source.unsplash.com/1200x400/?islam?mosque?muslim" class="card-img-top" alt="...">
+          @endif
+
           <div class="card-body text-center">
             <h3 class="card-title"><a href="/informasi-kajian/post/{{ $posts[0]->slug }}" class="text-decoration-none">{{ $posts[0]->title }}</a></h3>
             <p>
@@ -41,16 +48,22 @@
             <div class="col-md-4 mb-3">
               <div class="card">
                 <div class="position-absolute bg-dark px-3 py-2 text-white" style="background-color:rgba(0, 0, 0, 0.5)"><a href="/informasi-kajian?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
-                <img src="https://source.unsplash.com/450x500/?islam?mosque?muslim" class="card-img-top" alt="{{ $post->category->name }}">
+
+                @if ($post->image)
+                  <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->category->name }}" class="img-responsive center-block">
+                @else
+                  <img src="https://source.unsplash.com/450x500/?islam?mosque?muslim" class="card-img-top" alt="{{ $post->category->name }}">
+                @endif
+
                 <div class="card-body">
                   <h5 class="card-title"><a href="/informasi-kajian/post/{{ $post->slug }}">{{ $post->title }}</a></h5>
                   <p>
                     <small class="text-muted">
-                      <h5>By: <a href="#" style="color: var(--color-links-hover)">{{ $posts[0]->user->name }}</a> - {{ $post->created_at->diffForHumans() }} </h5>
+                      <h5>By: <a href="#" style="color: var(--color-links-hover)">{{ $post->user->name }}</a> - {{ $post->created_at->diffForHumans() }} </h5>
                     </small>
                   </p>
-                  <p class="card-text">{{ $posts[0]->excerpt }}</p>
-                  <a href="/informasi-kajian/post/{{ $posts[0]->slug }}" class="btn btn-primary">Selengkapnya..</a>
+                  <p class="card-text">{{ $post->excerpt }}</p>
+                  <a href="/informasi-kajian/post/{{ $post->slug }}" class="btn btn-primary">Selengkapnya..</a>
                 </div>
               </div>
             </div>
