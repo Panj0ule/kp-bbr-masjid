@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminCategoryInformasi_KajianController;
+use App\Http\Controllers\CategoryInformasi_KajianController;
 use App\Http\Controllers\DashboardInformasi_KajianController;
 
 use Illuminate\Support\Facades\Route;
@@ -24,9 +24,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/a', function () {
-  return view('index');
-});
 
 Route::get('/informasi-kajian', [Informasi_kajianController::class, 'index']);
 
@@ -61,4 +58,5 @@ route::get('/dashboard/informasi-kajian/checkSlug', [DashboardInformasi_KajianCo
 route::resource('/dashboard/informasi-kajian', DashboardInformasi_KajianController::class)->middleware('auth');
 
 //category
-route::resource('/dashboard/categories_informasi-kajian', AdminCategoryInformasi_KajianController::class)->except('show')->middleware('auth');
+route::get('/dashboard/categories-informasi-kajian/checkSlug', [CategoryInformasi_KajianController::class, 'checkSlug'])->middleware('auth');
+route::resource('/dashboard/categories-informasi-kajian', CategoryInformasi_KajianController::class)->except('show')->middleware('auth');

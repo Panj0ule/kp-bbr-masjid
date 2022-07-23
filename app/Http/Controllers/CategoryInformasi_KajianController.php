@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoryInformasi_kajian;
 use Illuminate\Http\Request;
+use App\Models\CategoryInformasi_kajian;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
-class AdminCategoryInformasi_KajianController extends Controller
+class CategoryInformasi_KajianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,12 @@ class AdminCategoryInformasi_KajianController extends Controller
      */
     public function index()
     {
-        return view('dashboard.categories.informasi_kajian.index');
+        if (auth()->guest()) {
+          abort(403);
+        }
+        return view('dashboard.categories.informasi-kajian.index', [
+          'categories' => CategoryInformasi_kajian::all()
+        ]);
     }
 
     /**
@@ -57,7 +63,9 @@ class AdminCategoryInformasi_KajianController extends Controller
      */
     public function edit(CategoryInformasi_kajian $categoryInformasi_kajian)
     {
-        //
+      return view('dashboard.categories.informasi-kajian.edit', [
+        'category'=>$categoryInformasi_kajian,
+      ]);
     }
 
     /**
@@ -69,7 +77,15 @@ class AdminCategoryInformasi_KajianController extends Controller
      */
     public function update(Request $request, CategoryInformasi_kajian $categoryInformasi_kajian)
     {
-        //
+      $rules = ([
+        'name'=>'required|max:255',
+      ]);
+
+      $validatedData['name'] = $request->name;
+
+      CategoryInformasi_kajian::where('id', $categoryInformasi_kajian->id)->update($validatedData);
+
+        return redirect('/dashboard/informasi-kajian/')->with('success', 'Post has been updated!');
     }
 
     /**
@@ -81,5 +97,11 @@ class AdminCategoryInformasi_KajianController extends Controller
     public function destroy(CategoryInformasi_kajian $categoryInformasi_kajian)
     {
         //
+    }
+
+    public function checkSlug(Request $request)
+    {
+      $slug = SlugService::createSlug(Informasi_kajian::class, 'slug', $request->name);
+      return response()->json(['slug'=>$slug]);
     }
 }
